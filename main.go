@@ -10,17 +10,17 @@ import (
 func main() {
 
 	var (
-		size    uint32
+		size    uint64
 		command string
-		counter uint32 = 0
+		counter uint64 = 0
 	)
 
 	fmt.Scanf("%d", &size)
 
-	numToLogMap := make(map[uint32]string)
+	numToLogMap := make(map[uint64]string)
 	wordPosMap := make(map[string][]int)
 
-	arr := make([]uint32, size)
+	arr := make([]uint64, size)
 
 	for i := true; i; {
 		command = utils.GetCommand()
@@ -45,7 +45,7 @@ func main() {
 			searchArray := strings.Split(command, " ")
 			term := searchArray[0]
 			count, _ := strconv.Atoi(searchArray[1])
-			foundArr := utils.FindWord(numToLogMap, arr[:], term, uint32(count))
+			foundArr := utils.FindWord(numToLogMap, arr[:], term, uint64(count))
 			if len(foundArr) == 0 {
 				fmt.Println("NONE")
 			} else {

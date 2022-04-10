@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func AddNumCommand(num uint32, s string, m map[uint32]string, a []uint32, counter uint32, size uint32, wordPosMap map[string][]int) (uint32, []uint32) {
+func AddNumCommand(num uint64, s string, m map[uint64]string, a []uint64, counter uint64, size uint64, wordPosMap map[string][]int) (uint64, []uint64) {
 	_, pres := m[num]
 
 	m[num] = s
@@ -31,9 +31,9 @@ func AddNumCommand(num uint32, s string, m map[uint32]string, a []uint32, counte
 	return counter, a
 }
 
-func GetNumFromString(s string) uint32 {
+func GetNumFromString(s string) uint64 {
 	num, _ := strconv.Atoi(s)
-	return uint32(num)
+	return uint64(num)
 }
 
 func GetCommand() string {
@@ -44,9 +44,9 @@ func GetCommand() string {
 	return command
 }
 
-func FindWord(m map[uint32]string, a []uint32, word string, limit uint32) []uint32 {
-	foundArr := make([]uint32, 0)
-	var counter uint32 = 0
+func FindWord(m map[uint64]string, a []uint64, word string, limit uint64) []uint64 {
+	foundArr := make([]uint64, 0)
+	var counter uint64 = 0
 	for i := (len(a) - 1); i >= 0; i-- {
 		s := m[a[i]]
 		if strings.Contains(s, word) {
